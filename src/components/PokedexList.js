@@ -130,6 +130,7 @@ function PokedexList() {
   const [loading, setLoading] = useState(true)
   const [entries, setEntries] = useState([])
 
+  //https://bigsondev.com/blog/how-to-fetch-data-in-react-using-pokeapi/
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
