@@ -7,6 +7,7 @@ function PokedexList() {
   const [error, setError] = useState(undefined);
   const [loading, setLoading] = useState(true)
   const [entries, setEntries] = useState([])
+  const [type, setType] = useState("")
 
   //https://bigsondev.com/blog/how-to-fetch-data-in-react-using-pokeapi/
   useEffect(() => {

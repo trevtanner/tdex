@@ -6,6 +6,7 @@ import {
   Divider,
 } from "@mui/material";
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 function DexListItem(props) {
   function fixNames(name) {
@@ -18,9 +19,11 @@ function DexListItem(props) {
       return name.charAt(0).toUpperCase() + name.slice(1);
     }
   }
+  
 
   return (
     <Fragment>
+      <Link to={`/${props.name}`}>
       <ListItem>
         <ListItemButton>
           <Avatar
@@ -29,12 +32,12 @@ function DexListItem(props) {
           />
           <ListItemText
             primary={fixNames(props.name)}
-            secondary={props.key} sx={{ textAlign: "start" }}
           />
           {/* <ListItemText secondary={`${props.firstType}/${props.secondType}`} sx={{ textAlign: 'end' }} /> */}
         </ListItemButton>
       </ListItem>
       <Divider />
+      </Link>
     </Fragment>
   );
 }
