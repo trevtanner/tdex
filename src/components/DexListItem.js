@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
+import classes from './DexListItem.module.css'
 
 function DexListItem(props) {
   function fixNames(name) {
@@ -15,7 +16,11 @@ function DexListItem(props) {
     }
     if (name === "nidoran-m") {
       return (name = "Nidoran");
-    } else {
+    } 
+    if (name === "mr-mime") {
+      return (name = "Mr. Mime")
+    }
+    else {
       return name.charAt(0).toUpperCase() + name.slice(1);
     }
   }
@@ -23,8 +28,7 @@ function DexListItem(props) {
 
   return (
     <Fragment>
-      <Link to={`/${props.name}`}>
-      <ListItem>
+      <ListItem component={Link} to={`/${props.name}`}>
         <ListItemButton>
           <Avatar
             src={`https://img.pokemondb.net/sprites/home/normal/${props.name}.png`}
@@ -32,13 +36,13 @@ function DexListItem(props) {
           />
           <ListItemText
             primary={fixNames(props.name)}
+            className={classes.name}
           />
-          {/* <ListItemText secondary={`${props.firstType}/${props.secondType}`} sx={{ textAlign: 'end' }} /> */}
+          {/* <ListItemText secondary={props.number.slice(-2)} sx={{ textAlign: 'end' }} /> */}
         </ListItemButton>
       </ListItem>
       <Divider />
-      </Link>
-    </Fragment>
+      </Fragment>
   );
 }
 

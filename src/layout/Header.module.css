@@ -1,0 +1,8 @@
+.heading {
+    text-decoration: none;
+    color: white
+}
+
+.heading:hover {
+    color: black;
+}

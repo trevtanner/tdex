@@ -1,41 +1,43 @@
-import { Box, List, Divider, Alert, Grid, CircularProgress, GridListTile, GridListTileBar } from '@mui/material'
-import { useEffect, useState } from 'react'
-import DexListItem from './DexListItem'
+import {
+  Box,
+  List,
+  Divider,
+  Alert,
+  Grid,
+  CircularProgress,
+  GridListTile,
+  GridListTileBar,
+} from "@mui/material";
+import { useEffect, useState } from "react";
+import DexListItem from "./DexListItem";
 
 function PokedexList() {
-
   const [error, setError] = useState(undefined);
-  const [loading, setLoading] = useState(true)
-  const [entries, setEntries] = useState([])
-  const [type, setType] = useState("")
+  const [loading, setLoading] = useState(true);
+  const [entries, setEntries] = useState([]);
+  const [type, setType] = useState("");
 
   //https://bigsondev.com/blog/how-to-fetch-data-in-react-using-pokeapi/
   useEffect(() => {
     const fetchData = async () => {
       try {
-      const response = await fetch(
-        'https://pokeapi.co/api/v2/pokemon?limit=151/',
-      )
-      const data = await response.json()
+        const response = await fetch(
+          "https://pokeapi.co/api/v2/pokemon?limit=151/"
+        );
+        const data = await response.json();
 
-      setEntries(data.results)
-
+        setEntries(data.results);
       } catch (e) {
-        setError(e.message || "Something went wrong")
+        setError(e.message || "Something went wrong");
       }
 
-      setLoading(false)
-    }
-    fetchData()
-  }, [])
-
-
-  const pokemonList = entries.map((entry) => (
-    <DexListItem key={entry.url} name={entry.name} />
-  ))
+      setLoading(false);
+    };
+    fetchData();
+  }, []);
 
   if (error) {
-    return <Alert severity='error'>{error}</Alert>
+    return <Alert severity="error">{error}</Alert>;
   }
 
   if (loading) {
@@ -46,8 +48,12 @@ function PokedexList() {
     );
   }
 
+  const pokemonList = entries.map((entry) => (
+    <DexListItem key={entry.url} name={entry.name} number={entry.url} />
+  ));
+
   return (
-    <Box sx={{ width: '100%', maxWidth: '700px', margin: 'auto' }}>
+    <Box sx={{ width: "100%", maxWidth: "700px", margin: "auto" }}>
       <nav aria-label="">
         <List>
           {/* {data.map((item) => (
@@ -67,6 +73,6 @@ function PokedexList() {
         </List>
       </nav>
     </Box>
-  )
+  );
 }
 export default PokedexList;

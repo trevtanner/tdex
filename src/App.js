@@ -7,7 +7,7 @@ import {
 import Home from './components/Home';
 import PokedexEntry from './components/PokedexEntry';
 
-function App(props) {
+function App() {
   return (
     <div>
     <Header />
