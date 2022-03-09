@@ -49,7 +49,7 @@ function PokedexList() {
   }
 
   const pokemonList = entries.map((entry) => (
-    <DexListItem key={entry.url} name={entry.name} number={entry.url} />
+    <DexListItem key={entry.url} name={entry.name} number={entries.indexOf(entry)} />
   ));
 
   return (

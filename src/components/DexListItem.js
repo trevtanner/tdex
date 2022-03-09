@@ -24,7 +24,12 @@ function DexListItem(props) {
       return name.charAt(0).toUpperCase() + name.slice(1);
     }
   }
-  
+
+function fixNumber(number) {
+  number = (number + 1);
+  number = ('00' + number).slice(-3)
+  return number
+}
 
   return (
     <Fragment>
@@ -38,7 +43,7 @@ function DexListItem(props) {
             primary={fixNames(props.name)}
             className={classes.name}
           />
-          {/* <ListItemText secondary={props.number.slice(-2)} sx={{ textAlign: 'end' }} /> */}
+          <ListItemText secondary={`# ${fixNumber(props.number)}`} sx={{ textAlign: 'end' }} />
         </ListItemButton>
       </ListItem>
       <Divider />
