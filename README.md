@@ -91,11 +91,12 @@ This app uses react and fetch to GET and display API data for the first 151 poke
 
 ### Built With
 
-Built with React, styling using Material UI, and API data from PokeAPI
+Built with React, styling using Material UI, API data from PokeAPI, and react router for multipage feature.
 
 * [React.js](https://reactjs.org/)
 * [Material-UI](https://mui.com/)
 * [PokeAPI](https://pokeapi.co/)
+* [React Router](https://reactrouter.com/)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
