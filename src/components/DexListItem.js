@@ -20,6 +20,9 @@ function DexListItem(props) {
     if (name === "mr-mime") {
       return (name = "Mr. Mime")
     }
+    if (name === 'farfetchd') {
+      return (name = 'Farfetch\'d')
+    } 
     else {
       return name.charAt(0).toUpperCase() + name.slice(1);
     }

@@ -85,7 +85,14 @@ function PokedexEntry() {
     }
     if (entries.name === 'nidoran-m') {
       return (entries.name = 'Nidoran')
-    } else {
+    } 
+    if (entries.name === 'mr-mime') {
+      return (entries.name = 'Mr. Mime')
+    } 
+    if (entries.name === 'farfetchd') {
+      return (entries.name = 'Farfetch\'d')
+    } 
+    else {
       return entries.name.charAt(0).toUpperCase() + entries.name.slice(1)
     }
   }
